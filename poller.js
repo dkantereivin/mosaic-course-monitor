@@ -96,6 +96,7 @@ function runAndCatch() {
         axios.post(process.env.DISCORD_WEBHOOK, {
             content: err.toString()
         });
+        console.error(err);
     })
 }
 
