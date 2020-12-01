@@ -31,7 +31,10 @@ const selectors = { // DOM selectors. Note: must include # for IDs!
 };
 
 async function runScraper() {
-    const browser = await puppeteer.launch({headless: process.env.RUN_HEADLESS === 'true'});
+    const browser = await puppeteer.launch({
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+        headless: process.env.RUN_HEADLESS === 'true'
+    });
     const incognito = await browser.createIncognitoBrowserContext();
     const page = await incognito.newPage();
     await page.goto(ENTRY_URL, {waitUntil: 'load'});
