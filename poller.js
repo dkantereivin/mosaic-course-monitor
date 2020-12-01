@@ -89,5 +89,14 @@ async function runScraper() {
     browser.close();
 }
 
-// setInterval(runScraper, 120000);
-runScraper();
+
+function runAndCatch() {
+    runScraper()
+    .catch(err => {
+        axios.post(process.env.DISCORD_WEBHOOK, {
+            content: err.toString()
+        });
+    })
+}
+
+setInterval(runAndCatch, 120000);
