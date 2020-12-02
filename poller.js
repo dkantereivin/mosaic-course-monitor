@@ -103,4 +103,4 @@ function runAndCatch() {
     })
 }
 
-setInterval(runAndCatch, 120000);
+runAndCatch().then(process.exit(0));
