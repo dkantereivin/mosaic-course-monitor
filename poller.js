@@ -1,3 +1,4 @@
+#!/usr/bin/node
 const puppeteer = require('puppeteer');
 const dotenv = require('dotenv');
 const fs = require('fs');
@@ -83,7 +84,7 @@ async function runScraper() {
     const pings = process.env.NOTIFY_IDS.split(',').map(id => `<@${id}>`);
     await axios.post(process.env.DISCORD_WEBHOOK, {
         content: 
-        `${pings.join(' ')} it's go time homies... currently there are ${openSections} open sections ` +
+        `${pings.join(' ')} it's go time homies... currently there are **${openSections}** open sections ` +
         `of ${process.env.COURSE_SUBJECT + ' ' + process.env.COURSE_NUMBER}`
     });
     console.log('Check complete -- message sent.');
@@ -104,8 +105,5 @@ function runAndCatch() {
     })
 }
 
-runAndCatch()
-    .then(() => {
-        process.exit(0)}
-    );
-setTimeout(process.exit, 120000)
+runAndCatch();
+setTimeout(process.exit, 120000);
