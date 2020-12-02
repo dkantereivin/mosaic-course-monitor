@@ -100,7 +100,12 @@ function runAndCatch() {
             content: err.toString()
         });
         console.error(err);
+        process.exit(0);
     })
 }
 
-runAndCatch().then(process.exit(0));
+runAndCatch()
+    .then(() => {
+        process.exit(0)}
+    );
+setTimeout(process.exit, 120000)
