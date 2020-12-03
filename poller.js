@@ -74,6 +74,10 @@ async function runScraper() {
     
     const openSections = openIcons - 1;
 
+    await axios.post(process.env.HEARTBEAT_WEBHOOK, {
+        content: `Hello, it is me! I am alive, and indeed, I have just checked Mosaic. There are ${openSections} sections open.`
+    }).catch(console.error);
+
     if (openSections <= 0) {
         console.log('Check complete -- no message.');
         await browser.close();
