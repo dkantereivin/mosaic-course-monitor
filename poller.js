@@ -19,7 +19,7 @@ async function sleep(ms) {
 const selectors = { // DOM selectors. Note: must include # for IDs!
     usernameTextField: '#userid',
     passwordTextField: '#pwd',
-    winterTermRadioButton: '[id="SSR_DUMMY_RECV1$sels$2$$0"]',
+    winterTermRadioButton: '[id="SSR_DUMMY_RECV1$sels$1$$0"]',
     termSelectContinueButton: '#DERIVED_SSS_SCT_SSR_PB_GO',
     courseSearchButton: '#DERIVED_REGFRM1_SSR_PB_SRCH',
     subjectTextField: '[id="SSR_CLSRCH_WRK_SUBJECT$0"]',
